@@ -1,18 +1,40 @@
-print("This is a demo program for Newton-Raphson method")
-# Finding approximate roots of given function f(x)=3x^3-9x^2+8
+'''
+In numerical analysis, Newton's method, also known as the Newton-Raphson method, named after Isaac Newton 
+and Joseph Raphson, is a root-finding algorithm which produces successively better approximations to the roots
+(or zeroes) of a real-valued function. The most basic version starts with a single-variable function f defined for 
+a real variable x, the function's derivative f', and an initial guess x0 for a root of f. If the function 
+satisfies sufficient assumptions and the initial guess is close, then is a better approximation of the root than x0. 
+Geometrically, (x1, 0) is the intersection of the x-axis and the tangent of the graph of f at (x0, f(x0)): that is, 
+the improved guess is the unique root of the linear approximation at the initial point. The process is repeated as
+until a sufficiently precise value is reached. This algorithm is first in the class of Householder's methods,
+succeeded by Halley's method. The method can also be extended to complex functions and to systems of equations. 
+'''
 def f(x):
-    return 3*x**3-9*x**2+8
-# g is the derivative of f w.r.t x
-def g(x):
-    return 9*x**2-18*x
-i=0
-a=-1;b=1;c=3
-while i<10:
-    a1=a-(f(a)/g(a))
-    b1=b-(f(b)/g(b))
-    c1=c-(f(c)/g(c))
-    a=a1;b=b1;c=c1
-    i+=1
-print("First approximate root :",a)
-print("Second approximate root :",b)
-print("Third approximate root :",c)
+    from math import exp
+    return x*exp(x)-1
+
+
+def f_prime(x):
+    from math import exp
+    return exp(x) + x*exp(x)
+
+
+def newton_raphson(x, iterations):
+    N = 1
+    while N <= iterations:
+        x = x - (f(x)/f_prime(x))
+        N += 1
+    return x
+
+print(newton_raphson(1, 3))
+
+# failure analysis
+'''
+https://en.wikipedia.org/wiki/Newton%27s_method#Failure_analysis
+
+Bad starting points
+Iteration point is stationary
+Starting point enters a cycle
+Derivative does not exist at root
+Discontinuous derivative
+'''

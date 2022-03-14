@@ -1,19 +1,35 @@
-# This is the program for implementation of Forward Interpolation
-from math import factorial
-def permutation(n,r):
-    for m in range(1,r):
-        n*=(n-m)
-    return n
-X=[0.5, 1.0, 1.5, 2.0, 2.5]
-Y=[[0.22245,0,0,0,0], [0.25031,0,0,0,0], [0.27799,0,0,0,0], [0.30546,0,0,0,0], [0.33269,0,0,0,0]]
-x=1.1
-h=X[1]-X[0]
-u=(x-X[0])/h
-n=len(X)
-for i in range(1,n):
+# there must be a constant difference between the x values
+def fact(p):
+    for i in range(1, p + 1):
+        p *= i
+    return p
+
+
+def u_cal(u, n):
+    for i in range(1, n):
+        u *= (u - i)
+    return u
+
+
+x = [0, 1, 2, 3, 4, 5, 6]
+y = [1, 2, 4, 8, 16, 32, 64]
+n = len(x)
+h = x[1]-x[0]
+Y = [[0 for i in range(n)] for j in range(n)]
+for i in range(n):
+    Y[i][0] = y[i]
+for i in range(1, n):
     for j in range(n-i):
-        Y[j][i]=Y[j+1][i-1]-Y[j][i-1]
-Sum=Y[0][0]
-for k in range(1,n):
-    Sum+=(permutation(u,k)*Y[0][k])/factorial(k)
-print(Sum)
+        Y[j][i] = Y[j+1][i-1]-Y[j][i-1]
+print("The forward difference table is :\n")
+for i in range(n):
+    print(x[i], end="\t")
+    for j in range(n - i):
+        print(round(Y[i][j], 3), end="\t")
+    print("")
+value = 0.5
+u = (value-x[0])/h
+res = Y[0][0]
+for i in range(1, n):
+    res += u_cal(u, i)*Y[0][i]/fact(i)
+print("\nThe value of interpolated function at", value, "is", round(res, 3))

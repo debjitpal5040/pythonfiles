@@ -1,13 +1,14 @@
-# This is a demo program for the implication of Lagrange interpolation
-from functools import reduce
-import operator
-def interpolate(x, x_values, y_values):
-    def _basis(j):
-        p = [(x - x_values[m])/(x_values[j] - x_values[m]) for m in range(k) if m != j]
-        return reduce(operator.mul, p)
-    k = len(x_values)
-    return sum(_basis(j)*y_values[j] for j in range(k))
-X=[5,6,9,11]
-Y=[12,13,14,16]
-x=10
-print(interpolate(x,X,Y))
+x = [0, 1, 2, 5]
+y = [2, 3, 12, 147]
+n = len(x)
+res = 0
+value = 3
+for i in range(n):
+    p = 1
+    q = 1
+    for j in range(n):
+        if j != i:
+            p *= (value-x[j])
+            q *= (x[i]-x[j])
+    res += (p*y[i])/q
+print("The value of interpolated function at", value, "is", round(res, 3))
