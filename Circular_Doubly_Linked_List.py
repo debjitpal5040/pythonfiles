@@ -63,11 +63,13 @@ class LinkedList:
     def search(self, data):
         temp = self.head
         pos = 1
-        while temp.next != self.head:
+        while temp:
             if temp.data == data:
                 return str(data) + " is present at position " + str(pos)
             temp = temp.next
             pos += 1
+            if temp == self.head:
+                break
         return str(data) + " is not present in the list"
 
 
@@ -91,4 +93,4 @@ llist.deleteFront()
 llist.printList()
 llist.deleteEnd()
 llist.printList()
-print(llist.search(5))
+print(llist.search(3))

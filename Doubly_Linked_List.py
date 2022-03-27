@@ -24,19 +24,17 @@ class LinkedList:
     def insertFront(self, new_data):
         new_node = Node(new_data)  # Allocate the Node & Put in the data
         new_node.next = self.head  # Make next of new node as head and previous as NULL
-        if self.head is not None:  # change prev of head node to new node
-            self.head.prev = new_node
+        self.head.prev = new_node
         self.head = new_node  # move the head to point to the new node
 
     # Adding a node at the end of the list
     def insertEnd(self, new_data):
         new_node = Node(new_data)
         new_node.prev = self.tail
-        if self.tail is not None:
-            self.tail.next = new_node
+        self.tail.next = new_node
         self.tail = new_node
 
-    # Adding a node after a given node
+    # Adding a node after a given middle node
     def insertAfter(self, prev_node, new_data):
         if prev_node is None:
             print("The given previous node cannot be NULL")
@@ -47,7 +45,7 @@ class LinkedList:
         prev_node.next.prev = new_node
         prev_node.next = new_node
 
-    # Adding a node before a given node
+    # Adding a node before a given middle node
     def insertBefore(self, next_node, new_data):
         if next_node is None:
             print("The given next node cannot be NULL")
@@ -64,16 +62,15 @@ class LinkedList:
             print("The list is empty")
             return
         self.head = self.head.next
-        if self.head is not None:
-            self.head.prev = None
+        self.head.prev = None
 
     # Deleting a node from the end of the list
     def deleteEnd(self):
         if self.tail is None:
+            print("The list is empty")
             return
         self.tail = self.tail.prev
-        if self.tail is not None:
-            self.tail.next = None
+        self.tail.next = None
 
     # Deleting a given node from the list
     def delete(self, node):
@@ -83,12 +80,12 @@ class LinkedList:
         node.next.prev = node.prev
         node.prev = None
         node.next = None
-    
+
     # Searching for a node in the list
     def search(self, data):
         temp = self.head
         pos = 1
-        while temp is not None:
+        while temp:
             if temp.data == data:
                 return str(data) + " is present at position " + str(pos)
             temp = temp.next
@@ -118,6 +115,6 @@ llist.deleteFront()
 llist.printList()
 llist.deleteEnd()
 llist.printList()
-llist.delete(second)
+llist.delete(llist.head.next.next)
 llist.printList()
-print(llist.search(1))
+print(llist.search(6))

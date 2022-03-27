@@ -44,17 +44,19 @@ class LinkedList():
         node = self.head
         while node.next != self.tail:
             node = node.next
+        node.next = self.head
         self.tail = node
-        self.tail.next = self.head
 
     def search(self, data):
         temp = self.head
         pos = 1
-        while temp.next != self.head:
+        while temp:
             if temp.data == data:
                 return str(data) + " is present at position " + str(pos)
             temp = temp.next
             pos += 1
+            if temp == self.head:
+                break
         return str(data) + " is not present in the list"
 
 
