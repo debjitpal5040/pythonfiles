@@ -20,15 +20,15 @@ class LinkedList():
 
     def insertFront(self, new_data):
         new_node = Node(new_data)
-        self.tail.next = new_node
         new_node.next = self.head
+        self.tail.next = new_node
         self.head = new_node
 
     def insertEnd(self, new_data):
         new_node = Node(new_data)
+        new_node.next = self.head
         self.tail.next = new_node
         self.tail = new_node
-        new_node.next = self.head
 
     def deleteFront(self):
         if self.head is None:
@@ -42,24 +42,20 @@ class LinkedList():
             print("The list is empty")
             return
         node = self.head
-        while node is not None:
-            if node.next is self.tail:
-                node.next = self.head
-                self.tail = node
-                break
-            else:
-                node = node.next
+        while node.next != self.tail:
+            node = node.next
+        self.tail = node
+        self.tail.next = self.head
 
     def search(self, data):
         temp = self.head
         pos = 1
-        while temp is not None:
+        while temp.next != self.head:
             if temp.data == data:
                 return str(data) + " is present at position " + str(pos)
             temp = temp.next
             pos += 1
         return str(data) + " is not present in the list"
-
 
 
 llist = LinkedList()
@@ -78,4 +74,4 @@ llist.deleteFront()
 llist.printList()
 llist.deleteEnd()
 llist.printList()
-print(llist.search(2))
+print(llist.search(5))
