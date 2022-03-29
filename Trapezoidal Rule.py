@@ -22,5 +22,7 @@ def trapezoidal_composite(a, b, n=1):
 print(trapezoidal_composite(0, 6, 100))
 
 # error analysis
-# -((b-a)**3/(12*n**2))*f''(c)
-# where a<c<b
+# h = (b-a)/n
+# error term = -(((b-a)*h**2)/12)*f''(c)
+# error term = -((b-a)**3/(12*n**2))*f''(c)
+# where a<=c<=b
