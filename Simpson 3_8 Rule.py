@@ -25,5 +25,6 @@ def simpson3_8_composite(a, b, n=3):
 print(simpson3_8_composite(0, 6, 100))
 
 # error analysis
-# -(1/6480)*(b-a)**5*f''''(c)
-# where a<c<b
+# h = (b-a)/(3*n)
+# error term = -(((b-a)*h**4)/80)*f''''(c)
+# where a<=c<=b
