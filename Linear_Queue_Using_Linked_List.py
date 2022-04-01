@@ -13,7 +13,7 @@ class Queue:
         self.front = -1
         self.rear = -1
 
-    def isempty(self):
+    def isEmpty(self):
         if self.front == self.rear:
             print("Empty Queue")
         else:
@@ -75,6 +75,6 @@ MyQueue.display()
 MyQueue.peek()
 MyQueue.dequeue()
 MyQueue.display()
-MyQueue.isempty()
+MyQueue.isEmpty()
 MyQueue.peek()
 MyQueue.enqueue(5)
