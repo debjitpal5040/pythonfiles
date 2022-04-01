@@ -4,14 +4,14 @@ rear = -1
 size = 3
 
 
-def isEmpty(s):
+def isEmpty():
     if front == rear:
         print("Empty Queue")
     else:
         print("Not Empty Queue")
 
 
-def isFull(s):
+def isFull():
     if rear == size-1:
         print("Full Queue")
     else:
@@ -35,15 +35,15 @@ def dequeue(s):
         print("Underflow error, Queue is empty")
     else:
         front += 1
-        print("Dequed element is :", s[front])
-        s[front] = None
+        print("Dequed element is :", s[0])
+        s.pop(0)
 
 
 def peek(s):
     if front == rear:
         print("Queue is empty")
     else:
-        print("Top element is :", s[front])
+        print("Top element is :", s[0])
 
 
 def display(s):
@@ -53,18 +53,15 @@ def display(s):
         print("The Queue is :", s)
 
 
-enqueue(s, 'H')
-enqueue(s, 'E')
+enqueue(s, 1)
+enqueue(s, 2)
+enqueue(s, 3)
+enqueue(s, 4)
+isFull()
+display(s)
 peek(s)
-enqueue(s, 'L')
-display(s)
-isFull(s)
-enqueue(s, 'L')
-display(s)
 dequeue(s)
 display(s)
-dequeue(s)
-display(s)
-dequeue(s)
-isEmpty(s)
-display(s)
+isEmpty()
+peek(s)
+enqueue(s, 5)
