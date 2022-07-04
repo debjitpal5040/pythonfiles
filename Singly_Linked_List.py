@@ -92,6 +92,18 @@ class LinkedList:
             pos += 1
         return str(data) + " is not present in the list"
 
+    # Reversing the list
+    def reverse(self):
+        prev = None
+        current = self.head
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+        return self.head
+
 
 # Start with the empty list
 llist = LinkedList()  # object of class LinkedList
@@ -116,3 +128,5 @@ llist.printList()
 llist.delete(llist.head.next.next)
 llist.printList()
 print(llist.search(6))
+llist.reverse()
+llist.printList()
