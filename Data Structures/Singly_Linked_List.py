@@ -80,8 +80,27 @@ class LinkedList:
             nod = nod.next
         nod.next = node.next
 
-    # Searching for a node in the list
+    # Number of nodes in the list
 
+    def length(self):
+        temp = self.head
+        count = 0
+        while temp:
+            count += 1
+            temp = temp.next
+        return count
+
+    # Middle of the list
+    def middle(self):
+        temp = self.head
+        len = self.length()
+        midIdx = len // 2
+        while midIdx > 0:
+            temp = temp.next
+            midIdx -= 1
+        return temp.data
+
+    # Searching for a node in the list
     def search(self, data):
         temp = self.head
         pos = 1
@@ -102,7 +121,6 @@ class LinkedList:
             prev = current
             current = next
         self.head = prev
-        return self.head
 
 
 # Start with the empty list
@@ -125,8 +143,11 @@ llist.deleteFront()
 llist.printList()
 llist.deleteEnd()
 llist.printList()
+print(llist.middle())
 llist.delete(llist.head.next.next)
 llist.printList()
 print(llist.search(6))
 llist.reverse()
 llist.printList()
+print(llist.length())
+print(llist.middle())

@@ -2,6 +2,10 @@
 # Stable: Yes
 # Time Complexity: O(n^2)
 # Space Complexity: O(1)
+# Best case is O(n) when the array is already sorted. 
+# Here (n-1) comparisons are made and 0 movements.
+# Worst case is O(n^2) when the array is reverse sorted. 
+# Here (n(n-1))/2 comparisons are made and (n(n-1))/2 movements.
 arr = [34, 56, 92, 49, 12, 36]
 
 
