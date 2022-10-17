@@ -1,15 +1,16 @@
 # Program for the linear search algoritm
-def search(arr, n, x): 
+def linear_search_iterative(arr, n, x): 
     for i in range (n): 
         if (arr[i] == x): 
             return i
     return -1
-print("This is the program to search for an element in an given array")
-arr = [int(x) for x in input("Enter the array elements : ").split()] 
-x = int(input("Enter the element to be searched : ")) 
-n = len(arr)
-result = search(arr, n, x) 
-if(result == -1): 
-    print(str(x) + " is not present in the given array") 
-else: 
-    print(str(x) + " is present in the given array at index", result)
+
+def linear_search_recursive(arr,n,x):
+    if n==0:
+        return -1
+    elif arr[n-1]==x:
+        return n-1
+    else:
+        return linear_search_recursive(arr,n-1,x)
+
+# Time complexity of linear search is O(n)
