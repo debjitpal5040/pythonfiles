@@ -1,5 +1,7 @@
 # In-place: Yes
 # Stable: Yes
+# Online: Yes
+# Adaptive: Yes
 # Time Complexity: O(n^2)
 # Space Complexity: O(1)
 # Best case is O(n) when the array is already sorted. 

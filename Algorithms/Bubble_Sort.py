@@ -1,6 +1,9 @@
 # In-place: Yes
 # Stable: Yes
-# Time Complexity: O(n^2)
+# Online: No
+# Adaptive: Yes
+# Worst and Average case Time Complexity: O(n^2) and O(n^2) swaps
+# Best case Time Complexity: O(n) and O(1) swaps
 # Space Complexity: O(1)
 arr = [34, 56, 92, 49, 12, 36]
 
