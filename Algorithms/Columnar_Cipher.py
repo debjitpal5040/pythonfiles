@@ -42,8 +42,9 @@ def decryptMessage(cipher):
         k_indx += 1
     try:
         msg = ''.join(sum(dec_cipher, []))
-    except TypeError:
-        raise TypeError("This program cannot", "handle repeating words.")
+    except TypeError as e:
+        raise TypeError("This program cannot",
+                        "handle repeating words.") from e
     null_count = msg.count('_')
     if null_count > 0:
         return msg[: -null_count]

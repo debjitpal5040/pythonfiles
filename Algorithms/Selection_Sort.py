@@ -9,9 +9,9 @@ arr = [34, 56, 92, 49, 12, 36]
 
 
 def selection_sort(arr):
-    for i in range(len(arr)):
-        id = arr.index(min(arr[i:]))
-        arr[i], arr[id] = arr[id], arr[i]
+    for i, _ in enumerate(arr):
+        _id = arr.index(min(arr[i:]))
+        arr[i], arr[_id] = arr[_id], arr[i]
     return arr
 
 

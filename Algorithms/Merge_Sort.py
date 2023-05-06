@@ -4,6 +4,7 @@
 # In-place: No
 arr = [34, 21, 12, 9, 5, 6, 10, 100, 0, 48, -1]
 
+
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr

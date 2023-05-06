@@ -15,8 +15,8 @@ no_edge = 0
 selected[0] = True
 # print for edge and weight
 print("Edge : Weight")
-cost=0
-while (no_edge < V - 1):
+cost = 0
+while no_edge < V - 1:
     # For every vertex in the set S, find the all adjacent vertices, calculate the distance from the vertex selected at step 1.
     # if the vertex is already in the set S, discard it otherwise choose another vertex nearest to selected vertex at step 1.
     minimum = INF
@@ -25,14 +25,14 @@ while (no_edge < V - 1):
     for i in range(V):
         if selected[i]:
             for j in range(V):
-                if ((not selected[j]) and G[i][j]!=0):  
+                if ((not selected[j]) and G[i][j] != 0):
                     # not in selected and there is an edge
                     if minimum > G[i][j]:
                         minimum = G[i][j]
                         x = i
                         y = j
     print(str(x) + " - " + str(y) + " : " + str(G[x][y]))
-    cost+=G[x][y]
+    cost += G[x][y]
     selected[y] = True
     no_edge += 1
-print("Total cost of the MST is :",cost)
+print("Total cost of the MST is :", cost)

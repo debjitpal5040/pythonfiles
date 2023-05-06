@@ -5,7 +5,7 @@
 # Worst and Average case Time Complexity: O(n^2) and O(n^2) swaps
 # Best case Time Complexity: O(n) and O(1) swaps
 # Space Complexity: O(1)
-arr = [34, 56, 92, 49, 12, 36]
+array = [34, 56, 92, 49, 12, 36]
 
 
 def bubble_sort(arr):
@@ -16,4 +16,4 @@ def bubble_sort(arr):
     return arr
 
 
-print(bubble_sort(arr))
+print(bubble_sort(array))

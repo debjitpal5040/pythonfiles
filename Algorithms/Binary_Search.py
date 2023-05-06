@@ -11,6 +11,7 @@ def binary_search_iterative(arr, n, x):
             high = mid - 1
     return -1
 
+
 def binary_search_recursive(arr, n, x):
     if n == 0:
         return -1

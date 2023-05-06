@@ -12,6 +12,8 @@ for i in range(1, 65):
     table[i] = table[i-1][1:]+table[i-1][:1]
 message = input("Enter the message to encrypt : ")
 key = input("Enter the key : ")
+
+
 def position(x):
     if x == ".":
         return 62
@@ -40,6 +42,8 @@ def character(x):
         return chr(x+71)
     elif 52 <= x <= 61:
         return chr(x-4)
+
+
 def encrypt(message, key):
     cipher = ""
     msg = len(message)
@@ -50,6 +54,8 @@ def encrypt(message, key):
     for i in range(msg):
         cipher += table[position(message[i])][position(key[i])]
     return cipher
+
+
 def decrypt(cipher, key):
     message = ""
     msg = len(cipher)
@@ -61,6 +67,8 @@ def decrypt(cipher, key):
         column = table[position(key[i])].index(cipher[i])
         message += character(column)
     return message
+
+
 ciphertext = encrypt(message, key)
 print("Encrypted message :", ciphertext)
 deciphertext = decrypt(ciphertext, key)
