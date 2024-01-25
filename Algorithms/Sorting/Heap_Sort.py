@@ -1,7 +1,10 @@
-# Time Complexity: O(n log n)
-# Space Complexity: O(1)
-# Stable: No
 # In-place: Yes
+# Stable: No
+# Online: No
+# Adaptive: No
+# Best case is O(n log n) when the array is already sorted.
+# Worst case is O(n log n) when the array is reverse sorted.
+# Space Complexity: O(1)
 
 def heapify(arr, n, i):
     # Find largest among root and children
